@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nodehelloworld
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nodehelloworld
+  template:
+    metadata:
+      labels:
+        app: nodehelloworld
+    spec:
+      containers:
+        - name: nodehelloworld
+          image: deepcodr/node-hello-world:latest
+          ports:
+            - containerPort: 4000
+          imagePullPolicy: Always
